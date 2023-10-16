@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { FormEvent, useState } from "react";
+import { Router } from "@routes/routes";
 
 export default function useIndex() {
   const router = useRouter();
@@ -10,9 +11,9 @@ export default function useIndex() {
     event.preventDefault();
 
     if (search.length >= 3) {
-        router.push("/teacher-search");
+      Router.searchTeacher.push(router, search);
     } else {
-        setMsgError('Minimum search length more or equals 3 is required')
+      setMsgError("Minimum search length more or equals 3 is required");
     }
   };
 
